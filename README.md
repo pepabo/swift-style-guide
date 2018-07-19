@@ -1,21 +1,4 @@
-<a href="http://eure.jp"><img alt="eureka" src="https://cloud.githubusercontent.com/assets/3029684/13734246/52816c8c-e9df-11e5-9240-258ecb380968.png" height=60 /></a>
-# eureka Swift Style Guide
-
-[English](https://github.com/eure/swift-style-guide/blob/master/README.md) | [日本語](https://github.com/eure/swift-style-guide/blob/master/README_jp.md)
-
-このスタイルガイドは、弊社のiOSチームが1年以上Swiftのコードを書いて、レビューをして、検証を重ねて培ってきたものです。弊社がリリースしているアプリに適用して、**優れている**と判断したコーディングルールを反映しました。
-
-ここに記されたルールは次の目的を達成もしくはサポートしようとするものです。
-
-- プログラマー自身のエラーを減らして、さらにエラーを見つけやすくする
-- コードの可読性と明快さを向上させる（他の人がコードをレビューもしくは書き換えると仮定して）
-- コードが不必要に肥大することを抑える
-- チームメンバーの多数が支持するコーディングの美学を守る
-
-このガイドラインの多くの項目は批判されたり、もしかしたらSwiftコミュニティの一般的なルールとは真逆のことかもしれません。しかし、弊社は**チーム開発**においてこれらのプラクティスを試して、検証してきました。そして、弊社では上手くいっています。
-
-このガイドラインは未完成であり、変更される可能性があります。弊社のアプリが成長したり、チームで改善をしたり、Swift自体が進化を遂げたりすることに従って、このガイドラインも必要に応じて更新していきます。
-
+# Swift Style Guide
 
 # 目次
 - [スタイルと慣習](#スタイルと慣習)
@@ -56,13 +39,13 @@
 <tr>
 <td><pre lang=swift>
 self.backgroundColor = UIColor.whiteColor()
-self.completion = { 
+self.completion = {
     // ...
 }
 </pre></td>
 <td><pre lang=swift>
 self.backgroundColor = UIColor.whiteColor();
-self.completion = { 
+self.completion = {
     // ...
 };
 </pre></td>
@@ -120,11 +103,11 @@ class Button {
 <td><pre lang=swift>
 class BaseViewController: UIViewController {
     // ...
-    
+
     override viewDidLoad() {
         // ...
     }
-    
+
     override viewWillAppear(animated: Bool) {
         // ...
     }
@@ -254,7 +237,7 @@ switch result {
 
 case .Success:
     self.completion()
-    
+
 case .Failure:
     self.failure()
 }
@@ -264,7 +247,7 @@ switch result {
 
 case .Success :
     self.completion()
-    
+
 case .Failure:self.reportError()
 }
 </pre></td>
@@ -319,13 +302,13 @@ class Icon {
     var completion: (() -> Void)
 
     init(image: UIImage) {
-    
+
         self.image = image
         self.completion = { [weak self] in self?.didComplete() }
     }
-    
+
     func doSomething() {
-    
+
         self.doSomethingElse()
     }
 }
@@ -338,7 +321,7 @@ class Icon {
         self.image = image
         self.completion = { [weak self] in print("done"); self?.didComplete() }
     }
-    
+
     func doSomething() { self.doSomethingElse() }
 }
 </pre></td>
@@ -378,7 +361,7 @@ override func drawRect(rect: CGRect) {
 }
 
 @objc dynamic func controllerDidChangeContent(controller: NSFetchedResultsController) {
-    
+
 }
 </pre></td>
 </tr>
@@ -398,7 +381,7 @@ class Button {
     var didTap: (sender: Button) -> Void = { _ in }
 
     func tap() {
-    
+
         self.didTap()
     }
 }
@@ -409,11 +392,11 @@ class Button {
     var didTap: (sender: Button) -> Void = {_ in}
 
     func tap() {
-    
+
         self.didTap()
-        
+
     }
-    
+
 }
 </pre></td>
 </tr>
@@ -459,13 +442,13 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         get {
-        
+
             return self.x + self.width
         }
         set {
-        
+
             self.x = newValue - self.width
         }
     }
@@ -476,7 +459,7 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         get
         {
             return self.x + self.width
@@ -495,7 +478,7 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         get { return self.x + self.width }
         set { self.x = newValue - self.width }
     }
@@ -506,16 +489,16 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         get { return self.x + self.width }
         set { self.x = newValue - self.width
-            print(self) 
+            print(self)
         }
     }
 }
 </pre></td>
 </tr>
-</table> 
+</table>
 
 ***理由：*** [括弧のルール](#括弧)と合わせて、このフォーマットは一貫性と可読性を向上させます。
 
@@ -529,7 +512,7 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         return self.x + self.width
     }
 }
@@ -539,9 +522,9 @@ struct Rectangle {
 
     // ...
     var right: Float {
-    
+
         get {
-        
+
             return self.x + self.width
         }
     }
@@ -589,7 +572,7 @@ else
 }
 </pre></td>
 </tr>
-</table> 
+</table>
 
 ***理由：*** [括弧のルール](#括弧)と合わせて、このフォーマットは一貫性と可読性を向上させます。条件分岐文と終わり波括弧が視覚的にスコープを分かりやすくしています。
 
@@ -604,7 +587,7 @@ switch result {
 case .Success:
     self.doSomething()
     self.doSomethingElse()
-    
+
 case .Failure:
     self.doSomething()
     self.doSomethingElse()
@@ -636,7 +619,7 @@ switch result {
 }
 </pre></td>
 </tr>
-</table> 
+</table>
 
 ***理由：*** Xcodeのオートインデントで適用されるインデントです。また、複数行の場合、`case`文を空行で分けることは視認性を向上させます。
 
@@ -655,7 +638,7 @@ if (array.isEmpty) {
 }
 </pre></td>
 </tr>
-</table> 
+</table>
 
 ***理由：*** Objective-Cではないからです。
 
@@ -678,7 +661,7 @@ if let strongSelf = self {
 }
 </pre></td>
 </tr>
-</table> 
+</table>
 
 ***理由：*** 追うべきネストが多くなればなるほど、コードを追いかけることが困難になります。
 
@@ -722,7 +705,7 @@ class image_button {
 <tr>
 <td><pre lang=swift>
 enum ErrorCode {
-    
+
 	case Unknown
   	case NetworkNotFound
   	case InvalidParameters
@@ -739,7 +722,7 @@ struct CacheOptions : OptionSetType {
 </pre></td>
 <td><pre lang=swift>
 enum ErrorCode {
-    
+
 	case unknown
   	case network_not_found
   	case invalidParameters
@@ -972,7 +955,7 @@ class Icon {
     // MARK: - CornerType
 
     enum CornerType {
-    
+
         case Square
         case Rounded
     }
@@ -988,7 +971,7 @@ class Icon {
     // MARK: CornerType
 
     enum CornerType {
-    
+
         case Square
         case Rounded
     }
@@ -1012,30 +995,30 @@ class BaseViewController: UIViewController, UIScrollViewDelegate {
 
 
     // MARK: Internal
-    
+
     weak var scrollView: UIScrollView?
-    
-    
+
+
     // MARK: UIViewController
-    
+
     override func viewDidLoad() {
         // ...
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         // ...
     }
-    
-    
+
+
     // MARK: UIScrollViewDelegate
-    
+
     @objc dynamic func scrollViewDidScroll(scrollView: UIScrollView) {
         // ...
     }
-    
-    
+
+
     // MARK: Private
-    
+
     private var lastOffset = CGPoint.zero
 }
 </pre></td>
@@ -1059,23 +1042,23 @@ class BaseViewController: UIViewController {
 
 
     // MARK: Internal
-    
+
     weak var scrollView: UIScrollView?
-    
-    
+
+
     // MARK: UIViewController
-    
+
     override func viewDidLoad() {
         // ...
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         // ...
     }
-    
-    
+
+
     // MARK: Private
-    
+
     private var lastOffset = CGPoint.zero
 }
 </pre></td>
@@ -1086,16 +1069,16 @@ class BaseViewController: UIViewController {
 
     // MARK: Internal
     weak var scrollView: UIScrollView?
-    
+
     // MARK: UIViewController
     override func viewDidLoad() {
         // ...
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         // ...
     }
-    
+
     // MARK: Private
     private var lastOffset = CGPoint.zero
 }
@@ -1241,7 +1224,7 @@ override func viewDidLoad() {
     let gesture = UITapGestureRecognizer(target: self, action: "tapGestureRecognized:")
     self.view.addGestureRecognizer(gesture)
 }
-    
+
 private dynamic func tapGestureRecognized(sender: UITapGestureRecognizer) {
     // ...
 }
@@ -1541,13 +1524,13 @@ for i in n ..< sequence.count {
 <tr>
 <td><pre lang=swift>
 self.animatableViews.forEach { view in
-            
+
     self.animateView(view)
 }
 </pre></td>
 <td><pre lang=swift>
 animatableViews.forEach { view in
-            
+
     animateView(view)
 }
 </pre></td>
@@ -1622,8 +1605,8 @@ self.request.downloadImage(
     url,
     completion: { [weak self] image in
 
-        guard let `self` = self else { 
-        
+        guard let `self` = self else {
+
             return
         }
         self.didDownloadImage(image)
@@ -1637,8 +1620,8 @@ self.request.downloadImage(
     url,
     completion: { [weak self] image in
 
-        guard let strongSelf = self else { 
-        
+        guard let strongSelf = self else {
+
             return
         }
         strongSelf.didDownloadImage(image)
