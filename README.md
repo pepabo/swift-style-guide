@@ -1128,17 +1128,15 @@ class BaseViewController: UIViewController {
 <tr>
 <td><pre lang=swift>
 protocol ExampleProtocol: AnyObject {
-
-
-    var someVar: Bool { get set }
+  
+    var thing: Bool { get }
 
 }
 </pre></td>
 <td><pre lang=swift>
 protocol ExampleProtocol: class {
-
-
-    var someVar: Bool { get set }
+  
+    var thing: Bool { get }
 
 }
 </pre></td>
