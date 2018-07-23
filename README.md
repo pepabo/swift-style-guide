@@ -16,7 +16,7 @@
     - [依存関係](#依存関係)
         - [Import文](#import文)
     - [宣言の順序](#宣言の順序)
-- [Swift4以降の仕様](#Swift4以降の仕様)
+- [新仕様](#新仕様)
 - [ベストプラクティス](#ベストプラクティス)
     - [コメント](#コメント)
     - [ダイナミックと安全性](#ダイナミックと安全性)
@@ -1119,29 +1119,28 @@ class BaseViewController: UIViewController {
 
 
 
-# Swift4以降の仕様
+# 新仕様
 
 ### 参照型のみに制約をつけるプロトコルは、classではなく、AnyObjectと書く
 
-<table>
-<tr><th>OK</th><th>NG</th></tr>
-<tr>
-<td><pre lang=swift>
+```swift
+
+// OK
+
 protocol ExampleProtocol: AnyObject {
   
     var thing: Bool { get }
 
 }
-</pre></td>
-<td><pre lang=swift>
+
+// NG
+
 protocol ExampleProtocol: class {
   
     var thing: Bool { get }
 
 }
-</pre></td>
-</tr>
-</table>
+```
 
 ***理由：*** 今後deprecateされる可能性があります。Swiftの元提案は[SE-0156](https://github.com/apple/swift-evolution/blob/master/proposals/0156-subclass-existentials.md)です。
 
