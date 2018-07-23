@@ -16,7 +16,7 @@
     - [依存関係](#依存関係)
         - [Import文](#import文)
     - [宣言の順序](#宣言の順序)
-- [Swift_4](#Swift_4)
+- [Swiftの新バージョン](#Swiftの新バージョン)
 - [ベストプラクティス](#ベストプラクティス)
     - [コメント](#コメント)
     - [ダイナミックと安全性](#ダイナミックと安全性)
@@ -1119,7 +1119,7 @@ class BaseViewController: UIViewController {
 
 
 
-# Swift_4
+# Swiftの新バージョン
 
 ### 参照型のみに制約をつけるプロトコルは、classではなく、AnyObjectと書く
 
