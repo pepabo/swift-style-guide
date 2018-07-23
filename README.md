@@ -16,7 +16,7 @@
     - [依存関係](#依存関係)
         - [Import文](#import文)
     - [宣言の順序](#宣言の順序)
-- [Swift_4以降の仕様](#Swift_4以降の仕様)
+- [Swift4以降の仕様](#Swift4以降の仕様)
 - [ベストプラクティス](#ベストプラクティス)
     - [コメント](#コメント)
     - [ダイナミックと安全性](#ダイナミックと安全性)
@@ -1119,9 +1119,9 @@ class BaseViewController: UIViewController {
 
 
 
-# Swift_4以降の仕様
+# Swift4以降の仕様
 
-#### 参照型のみに制約をつけるプロトコルは、classではなく、AnyObjectと書く
+### 参照型のみに制約をつけるプロトコルは、classではなく、AnyObjectと書く
 
 <table>
 <tr><th>OK</th><th>NG</th></tr>
@@ -1129,12 +1129,14 @@ class BaseViewController: UIViewController {
 <td><pre lang=swift>
 protocol ExampleProtocol: AnyObject {
 
+
     var someVar: Bool { get set }
 
 }
 </pre></td>
 <td><pre lang=swift>
 protocol ExampleProtocol: class {
+
 
     var someVar: Bool { get set }
 
